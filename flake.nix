@@ -1,45 +1,62 @@
 {
-  description = "A NixOS configuration by calepayson";
+    description = "A NixOS configuration by calepayson";
 
-  inputs = {
-    # NixOS official package source, using the nixos-23.11 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = inputs @ {
-    self, 
-    nixpkgs, 
-    home-manager,
-    ... 
-  }: {
-    nixosConfigurations = {
-      beaker = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/beaker
-
-	  home-manager.nixosModules.home-manager {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-
-	    home-manager.extraSpecialArgs = inputs;
-	    home-manager.users.cale = import ./home;
-          }
+    nixConfig = {
+        # Substituters will be appended to the default substituters when
+        # fetching packages
+        extra-substituters = [
+            "https://hyprland.cachix.org"
         ];
-      };
-
-      kermit = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-	specialArgs = { inherit inputs; };
-	modules = [
-	];
-      };
+        extra-trusted-public-keys = [
+            "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        ];
     };
-  };
+
+
+    inputs = {
+        # NixOS official package source, using the nixos-23.11 branch here
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+        home-manager = {
+            url = "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        hyprland = {
+            url = "github:hyprwm/Hyprland";
+            inputs.nixpkgs.follows = "nixkpgs";
+        };
+    };
+
+    outputs = inputs @ {
+        self, 
+            nixpkgs, 
+            home-manager,
+            ... 
+    }: {
+        nixosConfigurations = {
+            beaker = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                specialArgs = { inherit inputs; };
+                modules = [
+                    ./hosts/beaker
+
+                    home-manager.nixosModules.home-manager {
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+
+                        home-manager.extraSpecialArgs = inputs;
+                        home-manager.users.cale = import ./home;
+                    }
+                ];
+            };
+
+            kermit = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                specialArgs = { inherit inputs; };
+                modules = [
+                ];
+            };
+        };
+    };
 }

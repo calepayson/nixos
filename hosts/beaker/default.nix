@@ -3,8 +3,10 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
       ../../modules/system
+      ../../modules/hyprland
+
+      ./hardware-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -24,15 +26,11 @@
     ];
   };
 
-  ##################
-  # PACKAGE CONFIG #
-  ##################
-
   # Enable Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  # };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
