@@ -69,6 +69,7 @@ in {
     curl
     gh
     git
+    kitty
     neofetch
     neovim
     vim
