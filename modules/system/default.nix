@@ -2,7 +2,7 @@
   username = "cale";
 in {
   # Define user settings
-  users.users.cale = {
+  users.users.username = {
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
   };
@@ -69,6 +69,7 @@ in {
     curl
     gh
     git
+    kitty
     neofetch
     neovim
     vim
