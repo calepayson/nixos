@@ -1,0 +1,3 @@
+imports = [
+  ../tui/tui.nix
+];
