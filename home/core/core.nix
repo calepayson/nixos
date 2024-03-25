@@ -8,7 +8,7 @@
     username = "cale";
     homeDirectory = "/home/cale";
 
-    packages = with pkgs [
+    packages = with pkgs; [
       hello
     ];
   
