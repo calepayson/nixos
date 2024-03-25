@@ -5,7 +5,7 @@
   ];
 
   home = {
-    username = "cale"
+    username = "cale";
     homeDirectory = "/home/cale";
 
     packages = with pkgs [
