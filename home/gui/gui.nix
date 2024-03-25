@@ -1,3 +1,5 @@
-imports = [
-  ../tui/tui.nix
-];
+{
+  imports = [
+    ../tui/tui.nix
+  ];
+}

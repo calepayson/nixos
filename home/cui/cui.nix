@@ -1,3 +1,5 @@
-imports = [
-  ../gui/gui.nix
-];
+{
+  imports = [
+    ../gui/gui.nix
+  ];
+}

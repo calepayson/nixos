@@ -1,3 +1,5 @@
-imports = [
-  ../core/core.nix
-];
+{
+  imports = [
+    ../core/core.nix
+  ];
+}

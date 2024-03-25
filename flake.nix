@@ -46,7 +46,7 @@
                         home-manager.useUserPackages = true;
 
                         home-manager.extraSpecialArgs = inputs;
-                        home-manager.users.cale = import ./home/core/core.nix;
+                        home-manager.users.cale = import ./home/cui/cui.nix;
                     }
                 ];
             };
