@@ -15,7 +15,7 @@
 
     inputs = {
         # NixOS official package source, using the nixos-23.11 branch here
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -23,8 +23,8 @@
         };
 
         hyprland = {
-            url = "github:hyprwm/Hyprland";
-            inputs.nixpkgs.follows = "nixkpgs";
+            url = "github:hyprwm/Hyprland/v0.33.1";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
