@@ -1,9 +1,9 @@
 {config, pkgs, home, ...}:
 
-imports = [
-];
-
 {
+  imports = [
+  ];
+
   home = {
     username = "cale"
     homeDirectory = "/home/cale";
