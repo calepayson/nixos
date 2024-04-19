@@ -21,11 +21,6 @@
             url = "github:nix-community/home-manager/master";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
-        hyprland = {
-            url = "github:hyprwm/Hyprland/v0.38.1";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
     };
 
     outputs = inputs @ {
