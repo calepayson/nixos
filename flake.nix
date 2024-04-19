@@ -18,12 +18,12 @@
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
         home-manager = {
-            url = "github:nix-community/home-manager";
+            url = "github:nix-community/home-manager/master";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
         hyprland = {
-            url = "github:hyprwm/Hyprland/v0.33.1";
+            url = "github:hyprwm/Hyprland/v0.38.1";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
