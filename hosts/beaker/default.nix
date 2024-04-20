@@ -22,14 +22,13 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      firefox
+      # firefox
     ];
   };
 
   # Enable Hyprland
   # programs.hyprland = {
   #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   # };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
