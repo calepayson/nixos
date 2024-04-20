@@ -1,6 +1,6 @@
 #! /run/current-system/sw/bin/bash
 set -e
-pushd ~/nixos/
+pushd /home/cale/nixos/
 git diff -U0 *.nix
 echo "NixOS Rebuilding ... "
 sudo nixos-rebuild switch --flake .#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
