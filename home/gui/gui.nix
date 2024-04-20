@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ../tui/tui.nix
@@ -6,7 +8,11 @@
     ./nvim/default.nix
   ];
 
-  programs = {
-      firefox.enable = true;
-  };
+  packages = with pkgs; [
+      firefox
+  ];
+
+  # programs = {
+  #     firefox.enable = true;
+  # };
 }
