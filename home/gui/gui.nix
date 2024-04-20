@@ -8,11 +8,7 @@
     ./nvim/default.nix
   ];
 
-  packages = with pkgs; [
-      firefox
-  ];
-
-  # programs = {
-  #     firefox.enable = true;
-  # };
+  programs = {
+      firefox.enable = true;
+  };
 }
